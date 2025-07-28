@@ -1,6 +1,6 @@
 import { wagmiConnectors } from "./wagmiConnectors";
 import { Chain, createClient, http } from "viem";
-import { hardhat, mainnet } from "viem/chains";
+import { anvil, mainnet } from "viem/chains";
 import { createConfig } from "wagmi";
 import scaffoldConfig from "~~/scaffold.config";
 import { getAlchemyHttpUrl } from "~~/utils/fwt";
@@ -20,7 +20,7 @@ export const wagmiConfig = createConfig({
     return createClient({
       chain,
       transport: http(getAlchemyHttpUrl(chain.id)),
-      ...(chain.id !== (hardhat as Chain).id
+      ...(chain.id !== (anvil as Chain).id
         ? {
             pollingInterval: scaffoldConfig.pollingInterval,
           }

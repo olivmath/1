@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { hardhat } from "viem/chains";
+import { anvil } from "viem/chains";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth";
 
 type AddressLinkWrapperProps = {
@@ -20,8 +20,8 @@ export const AddressLinkWrapper = ({
   ) : (
     <Link
       href={blockExplorerAddressLink}
-      target={targetNetwork.id === hardhat.id ? undefined : "_blank"}
-      rel={targetNetwork.id === hardhat.id ? undefined : "noopener noreferrer"}
+      target={targetNetwork.id === anvil.id ? undefined : "_blank"}
+      rel={targetNetwork.id === anvil.id ? undefined : "noopener noreferrer"}
     >
       {children}
     </Link>

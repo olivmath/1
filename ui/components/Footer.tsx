@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { hardhat } from "viem/chains";
+import { anvil } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
@@ -15,7 +15,7 @@ import { useGlobalState } from "~~/services/store/store";
 export const Footer = () => {
   const nativeCurrencyPrice = useGlobalState(state => state.nativeCurrency.price);
   const { targetNetwork } = useTargetNetwork();
-  const isLocalNetwork = targetNetwork.id === hardhat.id;
+  const isLocalNetwork = targetNetwork.id === anvil.id;
 
   return (
     <div className="min-h-0 py-5 px-1 mb-11 lg:mb-0">

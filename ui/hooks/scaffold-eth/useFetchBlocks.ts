@@ -9,14 +9,14 @@ import {
   walletActions,
   webSocket,
 } from "viem";
-import { hardhat } from "viem/chains";
+import { anvil } from "viem/chains";
 import { decodeTransactionData } from "~~/utils/fwt";
 
 const BLOCKS_PER_PAGE = 20;
 
 export const testClient = createTestClient({
-  chain: hardhat,
-  mode: "hardhat",
+  chain: anvil,
+  mode: "anvil",
   transport: webSocket("ws://127.0.0.1:8545"),
 })
   .extend(publicActions)

@@ -78,3 +78,32 @@ cd smartcontracts
 
 - **`contracts/deployedContracts.ts`**: ABI of the contract that will be ‘auto-magically’ copied by the `smartcontracts/deploy.py` script.
 - **`package.json`**: list of dependencies and commands to run the frontend.
+
+
+
+# 1. [CREATOR] cria campanha no `CampaignManager::createCampaign()`
+
+* @param campaignId ID da campanha criada em bytes4 0x12341234
+* @param totalValue Valor total da campanha em USDC com 6 casas decimais
+* @param durationDays Duração da campanha em dias
+* @param targetLikes Meta de likes
+* @param targetViews Meta de views
+
+# 2. [BRAND] Aprova `totalValue` para `PaymentVault` no contrato `USDC::approve()`
+
+* @param spender Endereço do contrato PaymentVault
+* @param amount totalValue da campanha
+
+# 3. [BRAND] Inicia a Campanha no `CampaignManager::startCampaign()`
+
+* @param campaignID ID da campanha criada em bytes4 0x12341234
+
+# 4. [CREATOR] Atualizar a Campanha no `OracleConnector::updateCampaignMetrics()`
+
+* @param campaignId ID da campanha criada em bytes4 0x12341234
+* @param likes Número de likes
+* @param views Número de views
+
+# 5. [CREATOR] Resgatar pagamento `PaymentVault::withdrawPayment()`
+
+* @no_param

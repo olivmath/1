@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { hardhat } from "viem/chains";
+import { anvil } from "viem/chains";
 import { AddressComponent } from "~~/app/blockexplorer/_components/AddressComponent";
 import deployedContracts from "~~/contracts/deployedContracts";
 import { isZeroAddress } from "~~/utils/fwt/common";
@@ -38,9 +38,9 @@ async function fetchByteCodeAndAssembly(buildInfoDirectory: string, contractPath
 
 const getContractData = async (address: string) => {
   const contracts = deployedContracts as GenericContractsDeclaration | null;
-  const chainId = hardhat.id;
+  const chainId = anvil.id;
   let contractPath = "";
-
+  // LOAD CONTRACT
   const buildInfoDirectory = path.join(
     __dirname,
     "..",
